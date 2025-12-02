@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dart Learning Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        .star {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .star:hover {
+            transform: scale(1.2);
+        }
+        .star.filled {
+            fill: #facc15;
+            stroke: #facc15;
+        }
+        .star.empty {
+            fill: none;
+            stroke: #d1d5db;
+        }
+        .checkbox {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .checkbox.checked {
+            background: #22c55e;
+            border-color: #22c55e;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-50 to-blue-50 min-h-screen p-8">
+    <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h1 class="text-4xl font-bold text-gray-800 flex items-center gap-3">
+                    <svg class="text-purple-600" width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                    </svg>
+                    Dart Learning Plan
+                </h1>
+                <div class="text-right">
+                    <div id="progress" class="text-3xl font-bold text-purple-600">0%</div>
+                    <div class="text-sm text-gray-500">Progress</div>
+                </div>
+            </div>
+            
+            <div class="bg-purple-100 border-l-4 border-purple-600 p-4 rounded-lg">
+                <div class="flex items-start gap-3">
+                    <svg class="text-purple-600 flex-shrink-0 mt-1" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    </svg>
+                    <div class="text-sm text-purple-900">
+                        <strong>2-Hour Rule:</strong> If stuck for more than 2 hours, watch YouTube tutorials, read articles, come back tomorrow. Don't torture yourself!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content"></div>
+
+        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-xl p-8 text-center shadow-xl mt-8">
+            <svg class="mx-auto mb-4" width="48" height="48" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            <h2 class="text-3xl font-bold mb-2">Congratulations! 🎉</h2>
+            <p class="text-lg">After 14 days you'll be ready for Flutter and any other programming language!</p>
+        </div>
+    </div>
+
+    <script>
+        const weeks = [
+            {
+                title: "WEEK 1 — Dart Basic Syntax",
+                days: [
+                    {
+                        day: 1,
+                        title: "Setup and First Code",
+                        theory: "Variables, data types (int, double, String, bool), print()",
+                        practice: [
+                            "Write 'Hello World' program",
+                            "Print your name 5 times",
+                            "Simple arithmetic: 2+2, 10-5, 3*4",
+                            "Only then: mini calculator"
+                        ],
+                        miniTest: [
+                            "Create a variable with your age and print it",
+                            "Add two numbers and print result",
+                            "Create a String with your city"
+                        ],
+                        checkpoint: "If solved all 3 tasks in 10 minutes - move forward!"
+                    },
+                    {
+                        day: 2,
+                        title: "Control Structures",
+                        theory: "if/else, switch, for, while",
+                        practice: [
+                            "Program: number even or odd",
+                            "Program 'temperature rating'",
+                            "Loop: numbers from 1 to 20",
+                            "Loop: sum of numbers from 1 to 50"
+                        ],
+                        miniTest: [
+                            "Write program: if age < 18, print 'child', else 'adult'",
+                            "Print all even numbers from 1 to 30",
+                            "Find sum of all numbers from 1 to 10"
+                        ],
+                        checkpoint: "Understand difference between for and while? Let's go!"
+                    },
+                    {
+                        day: 3,
+                        title: "Functions",
+                        theory: "Declaration, parameters, return values",
+                        practice: [
+                            "Function: greet with name",
+                            "Function: add two numbers",
+                            "Function: rectangle area",
+                            "Function: check if even"
+                        ],
+                        miniTest: [
+                            "Create function that doubles a number",
+                            "Create function with two parameters: name and age",
+                            "Function should return text 'Hello, [name]! You are [age] years old'"
+                        ],
+                        checkpoint: "Can write function without hints? Excellent!"
+                    },
+                    {
+                        day: 4,
+                        title: "Collections",
+                        theory: "List, Map, Set - basic methods",
+                        practice: [
+                            "Create list of 5 fruits",
+                            "Add/remove element",
+                            "Create Map of player: name, level, health",
+                            "Find element in list"
+                        ],
+                        miniTest: [
+                            "Create list of 3 your favorite games",
+                            "Add one more game to end of list",
+                            "Create Map with your data (name, city, age)"
+                        ],
+                        checkpoint: "If stuck for more than 2 hours - watch YouTube video about List and Map, come back tomorrow!"
+                    },
+                    {
+                        day: 5,
+                        title: "OOP - Classes and Objects",
+                        theory: "Classes, fields, methods, constructors",
+                        practice: [
+                            "Create Player class with fields: name, health, energy",
+                            "Add method: attack",
+                            "Add method: take damage",
+                            "Create 2 players and simulate battle"
+                        ],
+                        miniTest: [
+                            "Create Car class with fields: brand, color, speed",
+                            "Add acceleration method",
+                            "Create 2 cars and print their parameters"
+                        ],
+                        checkpoint: "Understand what 'class instance' means? Super!"
+                    },
+                    {
+                        day: 6,
+                        title: "Inheritance + Composition",
+                        theory: "extends, override, super, composition",
+                        practice: [
+                            "Create base Character class",
+                            "Inherit Player and Enemy",
+                            "Create Inventory class",
+                            "Add Inventory to Player via composition"
+                        ],
+                        miniTest: [
+                            "Create Animal class with sound() method",
+                            "Create Dog and Cat classes that inherit Animal",
+                            "Override sound() method for each"
+                        ],
+                        checkpoint: "Confused about inheritance - repeat day 5, then come back!"
+                    },
+                    {
+                        day: 7,
+                        title: "Mini Game WITHOUT async",
+                        theory: "Consolidation of everything learned",
+                        practice: [
+                            "Console game 'Battle'",
+                            "Player vs Enemy",
+                            "Turns in sequence (no delays)",
+                            "Victory/defeat"
+                        ],
+                        miniTest: [
+                            "Game works from start to finish?",
+                            "Can attack and take damage?",
+                            "Is there a winner at the end?"
+                        ],
+                        checkpoint: "If game works - you're AWESOME! Week 1 complete! 🎉"
+                    }
+                ]
+            },
+            {
+                title: "WEEK 2 — Advanced Dart + Algorithms",
+                days: [
+                    {
+                        day: 8,
+                        title: "Exceptions and Errors",
+                        theory: "try/catch, throw, error handling",
+                        practice: [
+                            "Calculator with error handling (division by 0)",
+                            "Check item existence",
+                            "Generate custom exceptions"
+                        ],
+                        miniTest: [
+                            "Create function that divides numbers with division by 0 handling",
+                            "Throw exception if age is negative"
+                        ],
+                        checkpoint: "Understand why try/catch is needed? Let's go!"
+                    },
+                    {
+                        day: 9,
+                        title: "Advanced List Operations",
+                        theory: "map, where, reduce, forEach, sort",
+                        practice: [
+                            "Filter inventory by type",
+                            "Find strongest item",
+                            "Create player experience table"
+                        ],
+                        miniTest: [
+                            "Create list of numbers from 1 to 10",
+                            "Use where to keep only even numbers",
+                            "Use map to double each number"
+                        ],
+                        checkpoint: "If where/map are scary - watch examples, repeat tomorrow!"
+                    },
+                    {
+                        day: 10,
+                        title: "Async/await - Asynchrony",
+                        theory: "Future, async, await, delays",
+                        practice: [
+                            "Program with 2 second delay",
+                            "Battle with delays between turns",
+                            "Data loading simulation"
+                        ],
+                        miniTest: [
+                            "Create function that waits 1 second and prints 'Done!'",
+                            "Call this function 3 times in a row"
+                        ],
+                        checkpoint: "Async/await is tough. Not stuck? Great!"
+                    },
+                    {
+                        day: 11,
+                        title: "Modules and Project Structure",
+                        theory: "Code separation, imports, clean architecture",
+                        practice: [
+                            "Split game into files: player.dart, enemy.dart, inventory.dart",
+                            "Import modules in main.dart",
+                            "Run game from modules"
+                        ],
+                        miniTest: [
+                            "Create utils.dart file with useful functions",
+                            "Import them in main.dart",
+                            "Use these functions"
+                        ],
+                        checkpoint: "Project split into files and works? Super!"
+                    },
+                    {
+                        day: 12,
+                        title: "Big Project - RPG (day 1)",
+                        theory: "Architecture planning",
+                        practice: [
+                            "Create map of 3 rooms",
+                            "Player can move",
+                            "Room description output"
+                        ],
+                        miniTest: [
+                            "Player moves from room to room?",
+                            "Description is displayed?"
+                        ],
+                        checkpoint: "Basic navigation works? Continue!"
+                    },
+                    {
+                        day: 13,
+                        title: "Big Project - RPG (day 2)",
+                        theory: "Adding enemies and inventory",
+                        practice: [
+                            "Enemies in rooms",
+                            "Player inventory",
+                            "Battle system",
+                            "Items"
+                        ],
+                        miniTest: [
+                            "Can attack enemies?",
+                            "Inventory works?",
+                            "Is there victory/defeat?"
+                        ],
+                        checkpoint: "If game works fully - you're a HERO! 🏆"
+                    },
+                    {
+                        day: 14,
+                        title: "Refactoring and Consolidation",
+                        theory: "Code cleanup, architecture improvement",
+                        practice: [
+                            "Remove duplication",
+                            "Improve variable names",
+                            "Extract logic into functions",
+                            "Rewrite 'bad' solutions"
+                        ],
+                        miniTest: [
+                            "Code reads easily?",
+                            "No duplication?",
+                            "Everything works as before?"
+                        ],
+                        checkpoint: "CONGRATULATIONS! 2 weeks of Dart complete! Now Flutter! 🚀"
+                    }
+                ]
+            }
+        ];
+
+        function loadProgress() {
+            const saved = localStorage.getItem('dartProgress');
+            return saved ? JSON.parse(saved) : {};
+        }
+
+        function saveProgress(progress) {
+            localStorage.setItem('dartProgress', JSON.stringify(progress));
+        }
+
+        function calculateProgress(progress) {
+            const total = weeks.reduce((sum, week) => sum + week.days.length, 0);
+            const completed = Object.values(progress).filter(p => p.completed).length;
+            return Math.round((completed / total) * 100);
+        }
+
+        function updateProgressDisplay() {
+            const progress = loadProgress();
+            document.getElementById('progress').textContent = calculateProgress(progress) + '%';
+        }
+
+        function toggleDay(weekIndex, dayIndex) {
+            const progress = loadProgress();
+            const key = `w${weekIndex}d${dayIndex}`;
+            if (!progress[key]) progress[key] = {};
+            progress[key].completed = !progress[key].completed;
+            saveProgress(progress);
+            renderContent();
+        }
+
+        function setRating(weekIndex, dayIndex, rating) {
+            const progress = loadProgress();
+            const key = `w${weekIndex}d${dayIndex}`;
+            if (!progress[key]) progress[key] = {};
+            progress[key].rating = rating;
+            saveProgress(progress);
+            renderContent();
+        }
+
+        function renderContent() {
+            const progress = loadProgress();
+            const content = document.getElementById('content');
+            
+            content.innerHTML = weeks.map((week, weekIndex) => `
+                <div class="mb-8">
+                    <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl p-6 mb-4 shadow-lg">
+                        <h2 class="text-2xl font-bold flex items-center gap-3">
+                            <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+                            </svg>
+                            ${week.title}
+                        </h2>
+                    </div>
+
+                    ${week.days.map((day, dayIndex) => {
+                        const key = `w${weekIndex}d${dayIndex}`;
+                        const dayProgress = progress[key] || {};
+                        
+                        return `
+                            <div class="bg-white rounded-xl shadow-md p-6 mb-4 border-2 border-gray-100 hover:border-purple-300 transition-all">
+                                <div class="flex items-start justify-between mb-4">
+                                    <div class="flex items-start gap-4 flex-1">
+                                        <div 
+                                            class="checkbox flex-shrink-0 w-8 h-8 rounded-lg border-2 flex items-center justify-center ${dayProgress.completed ? 'checked' : 'border-gray-300'}"
+                                            onclick="toggleDay(${weekIndex}, ${dayIndex})"
+                                        >
+                                            ${dayProgress.completed ? '<svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>' : ''}
+                                        </div>
+                                        
+                                        <div class="flex-1">
+                                            <h3 class="text-xl font-bold text-gray-800 mb-1">
+                                                Day ${day.day}: ${day.title}
+                                            </h3>
+                                            <p class="text-sm text-gray-600 mb-3">
+                                                <strong>Theory:</strong> ${day.theory}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex gap-1 ml-4">
+                                        ${[1, 2, 3, 4, 5].map(star => `
+                                            <svg 
+                                                class="star ${star <= (dayProgress.rating || 0) ? 'filled' : 'empty'}"
+                                                width="20" 
+                                                height="20" 
+                                                viewBox="0 0 24 24"
+                                                stroke-width="2"
+                                                onclick="setRating(${weekIndex}, ${dayIndex}, ${star})"
+                                            >
+                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                            </svg>
+                                        `).join('')}
+                                    </div>
+                                </div>
+
+                                <div class="space-y-3 ml-12">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700 mb-2">📝 Practice:</h4>
+                                        <ul class="space-y-1">
+                                            ${day.practice.map(item => `
+                                                <li class="text-sm text-gray-600 flex items-start gap-2">
+                                                    <span class="text-purple-500 font-bold">•</span>
+                                                    <span>${item}</span>
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+
+                                    <div class="bg-blue-50 rounded-lg p-3">
+                                        <h4 class="font-semibold text-blue-900 mb-2">🧪 Mini-test (10 minutes):</h4>
+                                        <ul class="space-y-1">
+                                            ${day.miniTest.map((item, i) => `
+                                                <li class="text-sm text-blue-800 flex items-start gap-2">
+                                                    <span class="text-blue-500 font-bold">${i + 1}.</span>
+                                                    <span>${item}</span>
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+
+                                    <div class="bg-green-50 border-l-4 border-green-500 p-3 rounded">
+                                        <p class="text-sm text-green-800">
+                                            <strong>✅ Checkpoint:</strong> ${day.checkpoint}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `).join('');
+
+            updateProgressDisplay();
+        }
+
+        renderContent();
+    </script>
+</body>
+</html>
